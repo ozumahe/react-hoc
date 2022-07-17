@@ -22,8 +22,33 @@ const Search = (WrappedComponent: any, entity: string) => {
       };
       fetchData();
     }
+
     render() {
-      return <WrappedComponent data={this.state.data} />;
+      const { data, term } = this.state;
+
+      let filteredData = data.filter((d) => {
+        if (entity === "users") {
+          const { name }: { name: string } = d;
+          return name.indexOf(term) >= 0;
+        }
+
+        if (entity === "todos") {
+          const { title }: { title: string } = d;
+          return title.indexOf(term) >= 0;
+        }
+      });
+      return (
+        <>
+          <h1>{entity}</h1>
+          <input
+            type="text"
+            onChange={(e) =>
+              this.setState({ ...this.state, term: e.target.value })
+            }
+          />
+          <WrappedComponent data={filteredData} />{" "}
+        </>
+      );
     }
   };
 };

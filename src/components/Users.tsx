@@ -12,9 +12,8 @@ interface Data {
 const Users: FC<Props> = ({ data }: Props) => {
   return (
     <div>
-      <p>Users</p>
       {data.map(({ id, email }: Data) => (
-        <h1 key={id}>{email}</h1>
+        <h3 key={id}>{email}</h3>
       ))}
     </div>
   );

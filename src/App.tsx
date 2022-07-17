@@ -1,14 +1,17 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import Todos from "./components/Todos";
 import UsersSearch from "./components/Users";
+import TodosSearch from "./components/Todos";
 
 function App() {
   return (
     <>
-      <UsersSearch />
-      <Todos />
+      <div>
+        <UsersSearch />
+      </div>
+      <div>
+        <TodosSearch />
+      </div>
     </>
   );
 }

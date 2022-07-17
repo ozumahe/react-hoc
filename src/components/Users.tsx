@@ -5,16 +5,19 @@ type Props = {
   data: any;
 };
 
+interface Data {
+  id: number;
+  email: string;
+}
 const Users: FC<Props> = ({ data }: Props) => {
   return (
     <div>
-      {data.map(({ id, name }: { id: number; name: string }) => (
-        <h1 key={id}>{name}</h1>
+      <p>Users</p>
+      {data.map(({ id, email }: Data) => (
+        <h1 key={id}>{email}</h1>
       ))}
     </div>
   );
 };
 
-const UsersSearch = Search(Users, "users");
-
-export default UsersSearch;
+export default Search(Users, "users");

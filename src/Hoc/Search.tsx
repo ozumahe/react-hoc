@@ -46,7 +46,7 @@ const Search = (WrappedComponent: any, entity: string) => {
               this.setState({ ...this.state, term: e.target.value })
             }
           />
-          <WrappedComponent data={filteredData} />{" "}
+          <WrappedComponent data={filteredData} />
         </>
       );
     }
